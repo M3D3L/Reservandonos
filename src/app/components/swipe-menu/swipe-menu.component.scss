@@ -1,0 +1,19 @@
+.section {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

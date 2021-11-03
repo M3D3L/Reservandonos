@@ -1,0 +1,186 @@
+<div class="justify-center block w-full h-full pb-8 mx-auto overflow-hidden lg:pb-16 bg-lightgray">
+  <div class="flex flex-col w-full mx-auto lg:w-2/3">
+    <p class="w-full mt-4 font-bold tracking-wider lg:mt-16 lg:text-2xl">Reserva de manera segura con Reservándonos</p>
+    <p class="w-full pb-4 text-darkgray lg:text-2xl">Descubre lugares perfectos para cualquier ocasión</p>
+      <div class="flex w-full backdrop-filter rounded-xl">
+          <form class="flex w-full rounded-lg" action="">
+
+            <mat-accordion  class="w-1/2">
+              <mat-expansion-panel  >
+                <mat-expansion-panel-header class="w-full lg:my-4" hideToggle>
+                    <div class="flex w-full">
+                      <img class="w-8 h-6 lg:mt-2 lg:w-12 lg:h-10" src="assets/img/search/ubicacion.png" />
+                      <p class="mt-1 lg:text-xl lg:mt-4">{{ubi}}</p>
+                    </div>
+                </mat-expansion-panel-header>
+                <div class="flex flex-col w-full text-md lg:flex-row">
+                  <div class="flex flex-col w-full space-y-2 lg:w-5/12 lg:space-y-0 group">
+
+                    <p class="flex font-bold cursor-pointer opacity-80 hover:opacity-100 group-hover:text-salmon">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:rotate-90" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      Reservaciones
+                    </p>
+                    <p (click)="ubi='Restaurantes'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Restaurantes</p>
+                    <p (click)="ubi='Bares'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Bares</p>
+                    <p (click)="ubi='Antros'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Antros</p>
+                    <p (click)="ubi='Beach Clubs'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Beach Clubs</p>
+                    <p (click)="ubi='Promoción Coca-Cola'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Promoción Coca-Cola</p>
+                  </div>
+                  <div class="flex justify-center w-2/12">
+                    <div class="hidden w-0 h-32 border bg-gray lg:flex"> </div>
+                  </div>
+                  <div class="flex flex-col w-full mt-4 space-y-2 lg:w-5/12 lg:space-y-0 group lg:mt-0">
+                    <p class="flex font-bold cursor-pointer opacity-80 hover:opacity-100 group-hover:text-salmon">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:rotate-90" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      Clásicos Coca-Cola</p>
+                    <p (click)="ubi='Restaurantes'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Restaurantes</p>
+                    <p (click)="ubi='Comida Saludable'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Comida Saludable</p>
+                    <p (click)="ubi='Fonditas'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Fonditas</p>
+                    <p (click)="ubi='Taquerias'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Taquerias</p>
+                    <p (click)="ubi='Torterias'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Torterias</p>
+                    <p (click)="ubi='Hamburgueserias'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Hamburgueserias</p>
+                    <p (click)="ubi='Pizzerias'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Pizzerias</p>
+                    <p (click)="ubi='Cantinas'" class="cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">Cantinas</p>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <div class="flex w-1/2">
+              <mat-accordion class="w-full">
+                <mat-expansion-panel >
+                  <mat-expansion-panel-header class="w-full lg:my-4" hideToggle>
+                      <div class="flex w-full">
+                        <img class="hidden w-6 h-6 mt-4 lg:mt-2 lg:w-12 lg:h-10 lg:flex" src="assets/img/search/search.png" />
+                        <p class="text-sm lg:text-xl lg:mt-4">{{queHacer}}</p>
+                      </div>
+                  </mat-expansion-panel-header>
+
+                  <div class="flex flex-col w-full text-md lg:flex-row">
+                    <div class="flex flex-col w-full space-y-2 lg:w-5/12 lg:space-y-0 group">
+                      <p class="flex w-full py-2 font-black border-b cursor-pointer opacity-80 hover:opacity-100 text-md border-gray group-hover:text-salmon group-hover:border-salmon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 transform group-hover:animate-bounce" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        Nacional
+                      </p>
+                      <p class="flex pt-2 cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Todos
+                      </p>
+                      <p (click)="queHacer='Argentina'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex" >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Argentina
+                      </p>
+                      <p (click)="queHacer='Brasil'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Brasil
+                      </p>
+                      <p (click)="queHacer='Canada'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Canada
+                      </p>
+                      <p (click)="queHacer='Chile'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Chile
+                      </p>
+                      <p (click)="queHacer='Colombia'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Colombia
+                      </p>
+                      <p (click)="queHacer='Costa Rica'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Costa Rica
+                      </p>
+                      <p (click)="queHacer='Ecuador'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Ecuador
+                      </p>
+                    </div>
+                    <div class="flex justify-center w-2/12">
+                      <div class="hidden w-0 h-32 mt-16 border bg-gray lg:flex"> </div>
+                    </div>
+                    <div class="flex flex-col w-full space-y-2 lg:w-5/12 group lg:space-y-0">
+                      <p class="flex w-full py-2 font-black border-b cursor-pointer opacity-80 hover:opacity-100 text-md group-hover:text-salmon border-gray group-hover:border-salmon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 transform group-hover:animate-bounce" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        Internacional
+                      </p>
+
+                        <p (click)="queHacer='Estados Unidos'"  class="flex cursor-pointer opacity-80 hover:opacity-100 lg:pt-2 group-hover:flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          Estados Unidos
+                        </p>
+                        <p (click)="queHacer='Paraguay'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          Paraguay
+                        </p>
+                        <p (click)="queHacer='Perú'"  class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          Perú
+                        </p>
+                        <p (click)="queHacer='Uruguay'" class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          Uruguay
+                        </p>
+                        <p (click)="queHacer='Venezuela'" class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          Venezuela
+                        </p>
+                        <p (click)="queHacer='España'" class="flex cursor-pointer opacity-80 hover:opacity-100 group-hover:flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          España
+                        </p>
+                    </div>
+
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+
+              <button class="w-12 h-12 rounded-lg shadow-lg lg:h-20 lg:w-20 go-right bg-darkgray opacity-80 hover:opacity-100">
+                <img class="h-6 mx-auto lg:h-8" src="assets/img/search/magnify.png" alt="">
+              </button>
+
+
+          </form>
+
+
+      </div>
+
+  </div>
+</div>
+

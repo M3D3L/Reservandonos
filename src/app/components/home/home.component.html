@@ -1,0 +1,669 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <div class="bg-lightgray">
+      <!--Header**************************************************************-->
+      <div class="flex flex-col header">
+        <div class="flex flex-row w-5/6 mx-auto">
+          <div class="w-1/3 lg:w-1/2">
+            <img class="hidden h-6 mt-4 lg:block" src="assets/img/logoPlusTitle.png" alt=""/>
+            <img class="h-6 mt-4 lg:hidden" src="assets/img/footer/logo.png" alt=""/>
+          </div>
+
+          <div class="flex w-2/3 mt-4 lg:w-1/2 justify-evenly">
+            <div (click)="click()"  class="h-6 mt-1 text-sm cursor-pointer text-darkgray">{{ monedaValue }}</div>
+            <div  (click)="clickTwo()" class="h-6 mt-1 text-sm cursor-pointer text-darkgray cursor">{{idioma}}</div>
+
+            <img (click)="clickTwo()" class="h-6 cursor-pointer" src='{{ "assets/img/flags/" + bandera + ".png" }}' alt="">
+
+            <img class="h-6 cursor-pointer lg:hidden" src="assets/img/header/usuario.png" alt="">
+            <p class="hidden font-black transform cursor-pointer text-md lg:block hover:scale-105 opacity-80 hover:opacity-100">Registrate</p>
+            <button class="hidden h-6 px-2 text-sm font-bold tracking-widest text-center text-white transform lg:block bg-salmon opacity-80 hover:opacity-100 hover:scale-105">Iniciar Sesión</button>
+            <button (click)="opened=!opened">
+              <img class="h-6 cursor-pointer opacity-80 hover:opacity-100 hover:scale-105" src="assets/img/header/lineasMenu.png" alt="">
+            </button>
+
+
+          </div>
+
+        </div>
+
+        <!--Modal**************************************************************-->
+        <div class="flex flex-row w-1/2 mt-4 justify-evenly">
+          <!-- The Modal -->
+
+          <div [ngClass]="{'hidden': !ubicacion && !moneda}" class="modal z-modal">
+            <div class="flex flex-col modal-contenido ">
+              <div class="flex flex-col w-full py-8">
+                <button class="opacity-80 hover:opacity-100 text-salmon" (click)="clickThree()">Cerrar</button>
+                <div class="flex">
+                  <div class="w-1/2">
+                    <div (click)="ubicacion=true; moneda=false"
+                    [ngClass]="{'border-salmon': ubicacion,
+                                'border-gray': !ubicacion}"
+                    class="flex justify-center w-full h-8 space-x-2 border-b-4 cursor-pointer border-gray hover:border-salmon">
+                      <p>Ubicación</p>
+                    </div>
+                  </div>
+                  <div class="w-1/2">
+                    <div (click)="moneda=true; ubicacion=false"
+                      [ngClass]="{'border-salmon': moneda,
+                                  'border-gray': !moneda}"
+                      class="flex justify-center w-full h-8 space-x-2 border-b-4 cursor-pointer hover:border-salmon">
+                      <p>Moneda</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div *ngIf="ubicacion" class="flex flex-col w-full py-8 lg:flex-row">
+                <div class="flex w-full lg:w-1/2">
+                  <div class="w-1/2 space-y-4">
+
+                    <div (click)="idioma='ESP';bandera='Argentina'; clickThree()"  class="flex cursor-pointer">
+                        <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Argentina.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Argentina</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+                    </div>
+                    <div (click)="idioma='ESP';bandera='Chile'; clickThree()" class="flex cursor-pointer">
+
+                        <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Chile.png" alt=""/>
+
+                      <div class="flex-col">
+                        <p class="text-md">Chile</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+
+                    </div>
+                    <div (click)="idioma='ESP';bandera='USA'; clickThree()" class="flex cursor-pointer">
+
+                        <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/USA.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">USA</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+
+                    </div>
+                    <div (click)="idioma='ESP';bandera='Paraguay'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Paraguay.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Paraguay</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+                    </div>
+                    <div (click)="idioma='ESP';bandera='Espana'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Espana.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">España</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="w-1/2 space-y-4">
+                    <div (click)="idioma='POR';bandera='Brasil'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Brasil.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Brasil</p>
+                        <p class="text-sm">Portugués</p>
+                      </div>
+
+                    </div>
+                    <div (click)="idioma='ESP';bandera='Colombia'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Colombia.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Colombia</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+                    </div>
+                    <div (click)="idioma='EN';bandera='USA'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/USA.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">USA</p>
+                        <p class="text-sm">English</p>
+                      </div>
+
+                    </div>
+                    <div (click)="idioma='ESP';bandera='Peru'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Peru.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Peru</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+
+                    </div>
+
+                    <div (click)="idioma='EN';bandera='Espana'; clickThree()" class="flex cursor-pointer">
+
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Espana.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">España</p>
+                        <p class="text-sm">English</p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="flex w-full lg:w-1/2">
+                  <div class="w-1/2 space-y-4">
+
+                    <div (click)="idioma='EN';bandera='Canada'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Canada.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Canada</p>
+                        <p class="text-sm">English</p>
+                      </div>
+                    </div>
+
+                    <div (click)="idioma='ESP';bandera='CostaRica'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/CostaRica.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Costa Rica</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+                    </div>
+
+                    <div (click)="idioma='ESP';bandera='Mexico'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Mexico.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Mexico</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+                    </div>
+
+                    <div (click)="idioma='ESP';bandera='Uruguay'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Uruguay.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Uruguay</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="w-1/2 space-y-4">
+
+                    <div (click)="idioma='FRN';bandera='Canada'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Canada.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Canada</p>
+                        <p class="text-sm">Français</p>
+                      </div>
+                    </div>
+
+                    <div (click)="idioma='ESP';bandera='Ecuador'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Ecuador.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Ecuador</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+                    </div>
+
+                    <div (click)="idioma='EN';bandera='Mexico'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Mexico.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Mexico</p>
+                        <p class="text-sm">English</p>
+                      </div>
+                    </div>
+
+                    <div (click)="idioma='ESP';bandera='Venezuela'; clickThree()" class="flex cursor-pointer">
+                      <img class="w-8 h-8 mt-1 mr-2 " src="assets/img/flags/Venezuela.png" alt=""/>
+                      <div class="flex-col">
+                        <p class="text-md">Venezuela</p>
+                        <p class="text-sm">Español</p>
+                      </div>
+                   </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="moneda" class="flex flex-col w-full py-8 lg:flex-row">
+
+                <div class="flex w-full lg:w-2/3">
+                  <div class="w-1/2 space-y-4">
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='Bs'; clickThree()">
+                      <p class="text-md">Bolivar</p>
+                      <p class="text-sm">BS</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='USD'; clickThree()" >
+                      <p class="text-md">Dólar de EEUU</p>
+                      <p class="text-sm">USD</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='ARS'; clickThree()" >
+                      <p class="text-md">Peso Argentino</p>
+                      <p class="text-sm">ARS</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='MXN'; clickThree()">
+                      <p class="text-md">Peso Mexicano</p>
+                      <p class="text-sm">MXN</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='PEN'; clickThree()">
+                      <p class="text-md">Sol Peruano</p>
+                      <p class="text-sm">PEN</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" class="lg:hidden" (click)="monedaValue='CAD'; clickThree()" >
+                      <p class="text-md">Dólar Canadiense</p>
+                      <p class="text-sm">CAD</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" class="lg:hidden" (click)="monedaValue='PYG'; clickThree()">
+                      <p class="text-md">Guaraní Paraguayo</p>
+                      <p class="text-sm">PYG</p>
+                    </div>
+
+                  </div>
+
+                  <div class="flex flex-col cursor-pointer" class="w-1/2 space-y-4">
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='CRC'; clickThree()">
+                      <p class="text-md">Colón Costarricense</p>
+                      <p class="text-sm">CRC</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='EUR'; clickThree()">
+                      <p class="text-md">Euro</p>
+                      <p class="text-sm">EUR</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='CLP'; clickThree()">
+                      <p class="text-md">Peso Chilieno</p>
+                      <p class="text-sm">CLP</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='UYU'; clickThree()" >
+                      <p class="text-md">Peso Uruguayo</p>
+                      <p class="text-sm">UYU</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='COP'; clickThree()" class=" lg:hidden">
+                      <p class="text-md">Peso Colombiano</p>
+                      <p class="text-sm">COP</p>
+                    </div>
+
+                    <div class="flex flex-col cursor-pointer" (click)="monedaValue='BRL'; clickThree()" class=" lg:hidden">
+                      <p class="text-md">Real Brasileño</p>
+                      <p class="text-sm">BRL</p>
+                    </div>
+
+                  </div>
+                </div>
+
+
+                <div class="flex flex-col" class="flex-row hidden w-full mt-4 space-x-4 lg:w-1/3 lg:space-y-4 lg:space-x-0 lg:flex lg:flex-col lg:mt-0">
+
+                  <div class="flex flex-col cursor-pointer" (click)="monedaValue='CAD'; clickThree()" >
+                    <p class="text-md">Dólar Canadiense</p>
+                    <p class="text-sm">CAD</p>
+                  </div>
+
+                  <div class="flex flex-col cursor-pointer" (click)="monedaValue='PYG'; clickThree()" >
+                    <p class="text-md">Guaraní Paraguayo</p>
+                    <p class="text-sm">PYG</p>
+                  </div>
+
+                  <div class="flex flex-col cursor-pointer" (click)="monedaValue='COP'; clickThree()" >
+                    <p class="text-md">Peso Colombiano</p>
+                    <p class="text-sm">COP</p>
+                  </div>
+
+                  <div class="flex flex-col cursor-pointer" (click)="monedaValue='BRL'; clickThree()" >
+                    <p class="text-md">Real Brasileño</p>
+                    <p class="text-sm">BRL</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="w-full">
+          <div class="flex w-full mx-auto lg:w-2/3">
+            <div class="flex justify-center w-full mt-4 lg:mt-0 lg:justify-start lg:w-1/2">
+              <span class="flex flex-col text-center lg:flex-row">
+                <p class="font-extrabold text-md lg:hidden">¿Tienes un lugar? <span class="cursor-pointer text-salmon">Súbelo ahora</span></p>
+                <p class="text-2xl font-extrabold lg:mt-4 lg:text-4xl">Armamos tu Plan Ideal</p>
+              </span>
+
+            </div>
+            <div class="flex justify-end hidden w-1/2 lg:block">
+              <p class="flex justify-end my-8 text-xl font-extrabold">¿Tienes un lugar? <span class="cursor-pointer text-salmon">Súbelo ahora</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full mt-2 lg:mt-1">
+          <div class="hidden mx-auto lg:flex lg:w-2/3">
+            <div class="flex justify-center w-1/3 space-x-2 border-b-4 cursor-pointer border-gray h-14 hover:border-salmon">
+              <img class="h-6 cursor-pointer" src="assets/img/header/logo.png" alt=""/>
+              <p>Inicio</p>
+            </div>
+            <div (click)="clasicos=!clasicos; reservaciones=false" class="flex justify-center w-1/3 space-x-2 border-b-4 cursor-pointer border-gray h-14 hover:border-salmon">
+              <img class="h-6 cursor-pointer" src="assets/img/header/estrella.png" alt=""/>
+              <p>Reservaciones</p>
+            </div>
+            <div (click)="reservaciones=!reservaciones; clasicos=false" class="flex justify-center w-1/3 space-x-2 border-b-4 cursor-pointer border-gray h-14 hover:border-salmon">
+
+              <img class="h-6 cursor-pointer" src="assets/img/header/coca.png" alt=""/>
+              <p>Los Clásicos Coca-Cola</p>
+            </div>
+          </div>
+
+          <div class="mx-auto lg:hidden">
+            <div class="mx-auto section lg:hidden">
+              <div class="section__item">
+                <div class="flex justify-center w-56 h-10 border-b-4 cursor-pointer border-gray hover:border-salmon">
+                  <img class="h-6 " src="assets/img/header/logo.png" alt=""/>
+                  <p>Inicio</p>
+                </div>
+              </div>
+              <div (click)="clasicos=!clasicos; reservaciones=false" class="section__item">
+                <div class="flex justify-center w-56 h-10 border-b-4 cursor-pointer border-gray hover:border-salmon">
+                  <img class="h-6 " src="assets/img/header/estrella.png" alt=""/>
+                  <p>Reservaciones</p>
+                </div>
+              </div>
+              <div (click)="reservaciones=!reservaciones; clasicos=false" class="section__item">
+                <div class="flex justify-center w-56 h-10 border-b-4 cursor-pointer border-gray hover:border-salmon">
+                  <img class="h-6 " src="assets/img/header/coca.png" alt=""/>
+                  <p>Los Clásicos Coca-Cola</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div  class="flex w-full mx-auto lg:w-2/3">
+        <div
+        *ngIf="clasicos"
+        class="flex items-center w-full h-12 bg-white justify-evenly rounded-xl">
+          <div class="flex justify-center w-1/4 cursor-pointer group">
+            <img class="h-6 transform group-hover:animate-bounce" src="assets/img/dropdown/rest.png" alt=""/>
+            <p class="hidden lg:flex group-hover:text-salmon">Restaurantes</p>
+
+          </div>
+          <div class="flex justify-center w-1/4 cursor-pointer group">
+            <img class="h-6 transform group-hover:animate-bounce" src="assets/img/dropdown/Bares.png" alt=""/>
+            <p class="hidden lg:flex group-hover:text-salmon">Bares</p>
+
+          </div>
+          <div class="flex justify-center w-1/4 cursor-pointer group">
+            <img class="h-6 transform group-hover:animate-bounce" src="assets/img/dropdown/Antros.png" alt=""/>
+            <p class="hidden lg:flex group-hover:text-salmon">Antros</p>
+          </div>
+          <div class="flex justify-center w-1/4 cursor-pointer group">
+            <img class="h-6 transform group-hover:animate-bounce" src="assets/img/dropdown/BeachClubs.png" alt=""/>
+            <p class="hidden lg:flex group-hover:text-salmon">Beach Clubs</p>
+          </div>
+        </div>
+
+        <div *ngIf="reservaciones" class="flex flex-col items-center w-full h-20 space-y-4 bg-white rounded-xl">
+
+          <div class='flex items-center w-full mt-2 justify-evenly'>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/rest.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Restaurantes</p>
+            </div>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/saludable.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Comida Saludable</p>
+            </div>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/fondita.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Fonditas</p>
+            </div>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/taquerias.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Taquerias</p>
+            </div>
+
+          </div>
+          <div class='flex items-center w-full justify-evenly'>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/torta.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Torterias</p>
+            </div>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/hamburgues.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Hamburgueserias</p>
+            </div>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/pizza.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Pizzerias</p>
+            </div>
+
+            <div class="flex justify-center w-1/4 group">
+              <img class="h-6 group-hover:animate-bounce" src="assets/img/dropdown/cantinas.png" alt=""/>
+              <p class="hidden cursor-pointer lg:flex group-hover:text-salmon">Cantinas</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <app-search-bar></app-search-bar>
+    </div>
+
+    <app-base-carousel class="z-md"></app-base-carousel>
+
+    <div class="w-full py-8 bg-white lg:py-32">
+      <div class="flex mx-auto lg:w-2/3">
+        <img class="hidden w-1/5 sm:flex " src="assets/img/section/bannerLeft.jpg" alt="">
+        <div class="w-2/5 sm:hidden">
+          <img class="w-4/5" src="assets/img/section/bannerMini.png" alt="">
+        </div>
+
+          <span class="flex flex-col w-3/5 text-center lg:w-full lg:w-3/5">
+            <p class="mt-2 font-black text-center sm:text-4xl xl:mt-4">¡D<span class="border-b-4 border-salmon">escubre un nuevo luga</span>r!</p>
+            <div class="flex-row hidden mx-auto mt-2 text-center xl:flex">
+              <p class="flex text-sm text-center">Con Clásicos Locales <span class="px-1 pt-1 text-salmon cola"> CocaCola </span> obtén puntos y canjea promociones en tus lugares favoritos</p>
+            </div>
+            <div class='mx-auto mt-2 text-center xl:hidden'>
+              <p class="flex mx-auto text-sm text-center">Con Clásicos Locales <span class="pt-1 pl-1 text-salmon lg:mx-1 cola"> CocaCola </span></p>
+              <p class="flex mx-auto text-sm text-center">obtén puntos y canjea promociones</p>
+              <p class="flex pl-8 mx-auto text-sm text-center">en tus lugares favoritos</p>
+            </div>
+
+            <button class="px-4 py-1 mx-auto text-sm text-white transform scale-75 rounded-md bg-salmon">Comenzar Ahora</button>
+          </span>
+
+        <img class="hidden w-1/5 xl:block" src="assets/img/section/bannerRight.jpg" alt="">
+      </div>
+
+    </div>
+    <app-carousel-two></app-carousel-two>
+    <div class="w-full py-8 bg-white lg:py-32">
+      <div class="flex flex-row mx-auto lg:w-2/3">
+        <img class="w-2/5 mx-auto rounded-lg sm:hidden" src="assets/img/section/bannerMiniTwo.png" alt="">
+        <img class="hidden w-2/5 mx-auto sm:flex" src="assets/img/section/bannerTwo.jpg" alt="">
+        <div class="w-3/5 lg:mt-8">
+          <p class="font-black text-center xl:text-4xl md:text-3xl"><span class="border-b-4 border-salmon">¿Tienes un lugar?<br class="sm:hidden"> Súbelo ahora</span></p>
+            <div class="flex flex-row mx-auto mt-2 text-center">
+              <p class="flex px-8 mx-auto text-sm text-center">"Conoce la mejor forma de gestionar tus reservas con Reservándonos Partners gestiona el manejo de tus reservas desde un solo lugar."</p>
+            </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="bg-white">
+      <div class="flex justify-start mx-auto bg-white lg:pb-32 lg:w-2/3">
+        <img class="w-2/5 lg:h-64 lg:w-64 rounded-2xl" src="assets/img/section/promociones.jpg" alt="">
+          <p class="w-3/5 px-4 text-sm text-darkgray lg:w-full lg:h-full lg:mt-20 lg:text-2xl">
+            Reserva ahora y accede a la cuponera digital de Coca-Cola A La Orden donde
+            obtendrás códigos promocionales y tarjetas de regalo para tus siguientes visitas.
+            Encuentra Todos los Restaurantes Participantes con la Insignia Coca-Cola.
+          </p>
+      </div>
+    </div>
+
+    <app-carousel-three></app-carousel-three>
+    <app-icon-banner class="hidden lg:flex"></app-icon-banner>
+    <app-swipe-menu class="lg:hidden"></app-swipe-menu>
+    <div class="w-full bg-white">
+      <p class="mx-auto font-bold tracking-wider bg-white text-darkgray lg:w-2/3 lg:text-2xl">
+        Las principales cadenas de restaurantes, bares y antros ya trabajan con Reservándonos
+      </p>
+    </div>
+    <app-carousel-four></app-carousel-four>
+    <app-text-wall></app-text-wall>
+  </mat-sidenav-content>
+  <mat-sidenav class="w-full h-screen " [(opened)]="opened">
+
+
+    <mat-sidenav-container>
+      <mat-sidenav-content class="lg:px-4">
+        <div class="flex justify-end w-full mt-4">
+          <button class="text-salmon" (click)="opened=!opened; openedOne= true; openedTwo=false;">Cerrar</button>
+        </div>
+
+        <div class="relative flex flex-col w-full h-screen">
+
+
+        <div [ngClass]="{'hidden': !openedOne, 'block': openedOne}" class="">
+          <img class="h-12 mx-auto my-8 " src="assets/img/sidepanel/Imagotipo.png" alt="">
+          <div class="flex flex-row mb-8">
+            <img class="h-6" src="assets/img/sidepanel/Logo.png" alt="">
+            <p class="ml-2 font-bold cap">inicia sesión o regístrate</p>
+          </div>
+
+
+          <div class="flex justify-start w-full mx-auto border-2 border-salmon h-14">
+              <mat-form-field class="w-24 h-full text-sm border-2 bg-rose border-salmon">
+                <mat-label>Area</mat-label>
+                <mat-select >
+                  <mat-option *ngFor="let flag of flags" [value]="flag.value">
+                    <div class="flex">
+                      <img class="h-6 mt-2 " src='{{flag.img}}'> {{flag.viewValue}}
+                    </div>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            <div class="flex justify-end w-full">
+              <input
+              [(ngModel)]="phoneNumber"
+              class="w-full h-full text-center border-none" type="number" id="phoneNumber" name="phoneNumber" required
+                minlength="10" maxlength="10" size="10">
+              <div class="w-8 h-8 my-auto mr-2 transform rounded-full bg-rose hover:scale-105 opacity-90 hover:opacity-100">
+                <svg (click)="openedTwo=!openedTwo; openedOne=!openedOne" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto my-auto text-white cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="w-full mt-4 text-sm font-bold tracking-wider">Seguir como invitado</p>
+
+            <div class="flex justify-center mt-16">
+              <span class="flex cursor-pointer">
+                <img src="assets/img/dropdown/tenedor.png" alt="">
+                <p class="pl-4">
+                  Registrar mi Restaurante
+                </p>
+              </span>
+
+            </div>
+        </div>
+
+
+
+
+
+
+            <div
+            [ngClass]="{'hidden': !openedTwo, 'flex': openedTwo}"
+            class="relative flex-col w-full h-screen hide-scroll">
+              <img class="h-12 mx-auto my-8 " src="assets/img/sidepanel/Imagotipo.png" alt="">
+              <div class="flex flex-row mb-8">
+                <img class="h-6" src="assets/img/sidepanel/Logo.png" alt="">
+                <p class="ml-2 font-bold cap">código de verificación</p>
+              </div>
+
+                <div class="flex justify-start w-full hide-scroll">
+                    <input class="w-1/6 mx-1 text-center border-2 h-14 border-salmon" type="text" id="name" name="name" required
+                    minlength="1" maxlength="1" size="1">
+                    <input class="w-1/6 mx-1 text-center border-2 h-14 border-salmon" type="text" id="name" name="name" required
+                    minlength="1" maxlength="1" size="1">
+                    <input class="w-1/6 mx-1 text-center border-2 h-14 border-salmon" type="text" id="name" name="name" required
+                    minlength="1" maxlength="1" size="1">
+                    <input class="w-1/6 mx-1 text-center border-2 h-14 border-salmon" type="text" id="name" name="name" required
+                    minlength="1" maxlength="1" size="1">
+                    <input class="w-1/6 mx-1 text-center border-2 h-14 border-salmon" type="text" id="name" name="name" required
+                    minlength="1" maxlength="1" size="1">
+                    <input class="w-1/6 mx-1 text-center border-2 h-14 border-salmon" type="text" id="name" name="name" required
+                    minlength="1" maxlength="1" size="1">
+
+                </div>
+              <p class="w-full mt-4 text-sm tracking-wider">Ingresa el código de verificación que hemos enviado al número {{phoneNumber}}</p>
+              <p class="w-full mt-4 text-sm tracking-wider">¿No recibiste el mensaje? <span class="font-bold cursor-pointer">Enviar de nuevo</span></p>
+
+                <div class="flex justify-end w-full mt-16">
+                    <svg (click)="openedTwo=!openedTwo; openedOne=!openedOne" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto my-auto mr-8 text-white transform rounded-full cursor-pointer bg-rose hover:scale-105 opacity-90 hover:opacity-100" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+
+            </div>
+
+            <div class="absolute flex w-full bottom-20">
+              <p class="w-full text-sm font-bold transform scale-75">
+                Reservándonos © 2021 Todos los derechos reservados.
+              </p>
+              <div class="flex mr-8 space-x-1 text-salmon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke-width="2" class="ai ai-InstagramFill"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.465 1.066C8.638 1.012 9.012 1 12 1c2.988 0 3.362.013 4.534.066 1.172.053 1.972.24 2.672.511.733.277 1.398.71 1.948 1.27.56.549.992 1.213 1.268 1.947.272.7.458 1.5.512 2.67C22.988 8.639 23 9.013 23 12c0 2.988-.013 3.362-.066 4.535-.053 1.17-.24 1.97-.512 2.67a5.396 5.396 0 0 1-1.268 1.949c-.55.56-1.215.992-1.948 1.268-.7.272-1.5.458-2.67.512-1.174.054-1.548.066-4.536.066-2.988 0-3.362-.013-4.535-.066-1.17-.053-1.97-.24-2.67-.512a5.397 5.397 0 0 1-1.949-1.268 5.392 5.392 0 0 1-1.269-1.948c-.271-.7-.457-1.5-.511-2.67C1.012 15.361 1 14.987 1 12c0-2.988.013-3.362.066-4.534.053-1.172.24-1.972.511-2.672a5.396 5.396 0 0 1 1.27-1.948 5.392 5.392 0 0 1 1.947-1.269c.7-.271 1.5-.457 2.67-.511zm8.98 1.98c-1.16-.053-1.508-.064-4.445-.064-2.937 0-3.285.011-4.445.064-1.073.049-1.655.228-2.043.379-.513.2-.88.437-1.265.822a3.412 3.412 0 0 0-.822 1.265c-.151.388-.33.97-.379 2.043-.053 1.16-.064 1.508-.064 4.445 0 2.937.011 3.285.064 4.445.049 1.073.228 1.655.379 2.043.176.477.457.91.822 1.265.355.365.788.646 1.265.822.388.151.97.33 2.043.379 1.16.053 1.507.064 4.445.064 2.938 0 3.285-.011 4.445-.064 1.073-.049 1.655-.228 2.043-.379.513-.2.88-.437 1.265-.822.365-.355.646-.788.822-1.265.151-.388.33-.97.379-2.043.053-1.16.064-1.508.064-4.445 0-2.937-.011-3.285-.064-4.445-.049-1.073-.228-1.655-.379-2.043-.2-.513-.437-.88-.822-1.265a3.413 3.413 0 0 0-1.265-.822c-.388-.151-.97-.33-2.043-.379zm-5.85 12.345a3.669 3.669 0 0 0 4-5.986 3.67 3.67 0 1 0-4 5.986zM8.002 8.002a5.654 5.654 0 1 1 7.996 7.996 5.654 5.654 0 0 1-7.996-7.996zm10.906-.814a1.337 1.337 0 1 0-1.89-1.89 1.337 1.337 0 0 0 1.89 1.89z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke-width="2" class="ai ai-TwitterFill"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578 9.3 9.3 0 0 1-2.958 1.13 4.66 4.66 0 0 0-7.938 4.25 13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568 4.692 4.692 0 0 1-2.104.08 4.661 4.661 0 0 0 4.352 3.234 9.348 9.348 0 0 1-5.786 1.995 9.5 9.5 0 0 1-1.112-.065 13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke-width="2" class="ai ai-FacebookFill"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 12.067C0 18.033 4.333 22.994 10 24v-8.667H7V12h3V9.333c0-3 1.933-4.666 4.667-4.666.866 0 1.8.133 2.666.266V8H15.8c-1.467 0-1.8.733-1.8 1.667V12h3.2l-.533 3.333H14V24c5.667-1.006 10-5.966 10-11.933C24 5.43 18.6 0 12 0S0 5.43 0 12.067z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke-width="2" class="ai ai-LinkedInV1Fill"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 2.838A1.838 1.838 0 0 1 2.838 1H21.16A1.837 1.837 0 0 1 23 2.838V21.16A1.838 1.838 0 0 1 21.161 23H2.838A1.838 1.838 0 0 1 1 21.161V2.838zm8.708 6.55h2.979v1.496c.43-.86 1.53-1.634 3.183-1.634 3.169 0 3.92 1.713 3.92 4.856v5.822h-3.207v-5.106c0-1.79-.43-2.8-1.522-2.8-1.515 0-2.145 1.089-2.145 2.8v5.106H9.708V9.388zm-5.5 10.403h3.208V9.25H4.208v10.54zM7.875 5.812a2.063 2.063 0 1 1-4.125 0 2.063 2.063 0 0 1 4.125 0z"/></svg>
+              </div>
+            </div>
+        </div>
+      </mat-sidenav-content >
+    </mat-sidenav-container>
+
+
+
+
+
+
+
+  </mat-sidenav>
+
+
+
+
+
+</mat-sidenav-container>
+
+
+

@@ -1,0 +1,62 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* You can add global styles to this file, and also import other style files */
+@layer utilities {
+  @media (max-width: 768px) {
+    .y-border{
+      @apply border-t-2 border-b-2;
+      
+      --tw-border-opacity: 1;
+border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+    }
+  }
+
+  .btn {
+    @apply py-2 px-4 border shadow-sm text-sm font-medium rounded-md text-white;
+    border-color: transparent;
+}
+
+
+
+
+  
+}
+
+@font-face {
+  font-family: "Omnes";
+  src: local("Omnes"), url(assets/Omnes.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'LokiCola';
+  src: URL(assets/LokiCola.ttf) format('truetype');
+}
+
+.cola {
+  font-family: "LokiCola";
+}
+
+
+html, body { height: 100%; }
+body { font-family: Omnes !important;}
+
+
+.z-max{
+  z-index: 99998;
+}
+
+.z-modal{
+  z-index: 99999;
+}
+
+.cap{
+  text-transform: capitalize;
+}
+
+.header{
+  --tw-bg-opacity: 1;
+
+  @apply bg-white rounded-b-3xl;
+}
+
